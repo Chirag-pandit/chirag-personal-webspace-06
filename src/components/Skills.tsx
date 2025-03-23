@@ -1,13 +1,13 @@
 
 import { useRef, useEffect } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Moon, Sun } from 'lucide-react';
+import { Moon, Sun, Zap, Code, MonitorSmartphone, Puzzle } from 'lucide-react';
 import { Switch } from "@/components/ui/switch";
 import { useTheme } from "@/context/ThemeContext";
 
 interface SkillProps {
   name: string;
-  icon: string;
+  icon: React.ReactNode;
   color: string;
   delay: number;
 }
@@ -15,73 +15,73 @@ interface SkillProps {
 const skills: SkillProps[] = [
   {
     name: 'HTML',
-    icon: 'ri-html5-fill',
+    icon: <i className="ri-html5-fill"></i>,
     color: 'text-orange-500',
     delay: 0.1,
   },
   {
     name: 'CSS',
-    icon: 'ri-css3-fill',
+    icon: <i className="ri-css3-fill"></i>,
     color: 'text-blue-500',
     delay: 0.2,
   },
   {
     name: 'JavaScript',
-    icon: 'ri-javascript-fill',
+    icon: <Code className="w-6 h-6" />,
     color: 'text-yellow-500',
     delay: 0.3,
   },
   {
     name: 'React.js',
-    icon: 'ri-reactjs-fill',
+    icon: <i className="ri-reactjs-fill"></i>,
     color: 'text-cyan-500',
     delay: 0.4,
   },
   {
     name: 'Power BI',
-    icon: 'ri-bar-chart-box-fill',
+    icon: <i className="ri-bar-chart-box-fill"></i>,
     color: 'text-indigo-600',
     delay: 0.5,
   },
   {
     name: 'GSAP',
-    icon: 'ri-animation-fill',
+    icon: <Zap className="w-6 h-6" />,
     color: 'text-green-500',
     delay: 0.6,
   },
   {
     name: 'Responsive Design',
-    icon: 'ri-layout-responsive-fill',
+    icon: <MonitorSmartphone className="w-6 h-6" />,
     color: 'text-pink-500',
     delay: 0.7,
   },
   {
     name: 'Problem Solving',
-    icon: 'ri-puzzle-fill',
+    icon: <Puzzle className="w-6 h-6" />,
     color: 'text-purple-500',
     delay: 0.8,
   },
   {
     name: 'TypeScript',
-    icon: 'ri-file-code-line',
+    icon: <i className="ri-file-code-line"></i>,
     color: 'text-blue-600',
     delay: 0.9,
   },
   {
     name: 'Tailwind CSS',
-    icon: 'ri-palette-line',
+    icon: <i className="ri-palette-line"></i>,
     color: 'text-teal-500',
     delay: 1.0,
   },
   {
     name: 'Git',
-    icon: 'ri-git-branch-line',
+    icon: <i className="ri-git-branch-line"></i>,
     color: 'text-orange-600',
     delay: 1.1,
   },
   {
     name: 'UI/UX Design',
-    icon: 'ri-pen-nib-line',
+    icon: <i className="ri-pen-nib-line"></i>,
     color: 'text-rose-500',
     delay: 1.2,
   },
@@ -187,7 +187,7 @@ const SkillCard = ({ skill, isInView }: { skill: SkillProps; isInView: boolean }
     >
       <div className="flex flex-col items-center text-center">
         <div className={`text-4xl ${skill.color} mb-4`}>
-          <i className={skill.icon}></i>
+          {skill.icon}
         </div>
         <h3 className={`text-lg font-medium ${theme === 'dark' ? 'text-white' : ''}`}>{skill.name}</h3>
       </div>
